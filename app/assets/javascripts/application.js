@@ -9,8 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// 
+//=require jquery-1.10.2
+//=require bootstrap.min
+//=require bootstrap-checkbox-radio-switch
+//=require chartist.min
+//=require bootstrap-notify
+//=require light-bootstrap-dashboard
+//=require demo
