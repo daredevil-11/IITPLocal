@@ -402,3 +402,24 @@
 	};
 
 }));
+
+
+notice = {
+
+	notification: function(from, align,colour, note){
+    	
+    	
+    	$.notify({
+        	icon: "pe-7s-notify",
+        	message: note,
+        	
+        },{
+            type: type[colour],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+	}
+}

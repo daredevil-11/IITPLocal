@@ -135,7 +135,7 @@ demo = {
     	
     	$.notify({
         	icon: "pe-7s-notify",
-        	message: " <b>Welcome</b> This is a notification",
+        	message: "<b>Welcome</b> This is a notification",
         	
         },{
             type: type[color],

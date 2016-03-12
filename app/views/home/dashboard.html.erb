@@ -80,9 +80,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
-                                Log out
-                            </a>
+                            <%= link_to( 'Log out', destroy_user_session_path, :method => :delete) %>
                         </li>
                     </ul>
                 </div>
@@ -170,7 +168,10 @@
                                     <button class="btn btn-default btn-block" onclick="demo.showNotification('bottom','center')">Bottom Center</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-default btn-block" onclick="demo.showNotification('bottom','right')">Bottom Right</button>
+                                <script type="text/javascript">
+                                    var notify = 'This is a costom made notification';
+                                </script>
+                                    <button class="btn btn-default btn-block" onclick="notice.notification('bottom','right', 1, notify)">Bottom Right</button>
                                 </div>
                             </div>
                         </div>

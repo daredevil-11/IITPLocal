@@ -15,6 +15,24 @@
 </head>
 <body>
 
+<div class="col-md-2">
+    <div class="notice" >
+      <script type="text/javascript">
+        var notice = <%= notice %>;
+        var n = notice.length;
+        if(n != 0){
+            notice.notification('top','center', 1, notice);
+        }
+        var alert = <%= alert %>;
+        var n = alert.length;
+        if(n != 0){
+            notice.notification('top','center', 4, alert);
+        }
+      </script>
+      <p> <%= notice %></p>
+    </div>
+</div>
+
 <%= yield %>
 
 </body>
