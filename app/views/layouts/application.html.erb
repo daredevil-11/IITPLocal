@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Single-Login Sys</title>
+  <title>IIT PATNA LOCAL</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
 
 
@@ -15,25 +16,29 @@
 </head>
 <body>
 
-<div class="col-md-2">
-    <div class="notice" >
-      <script type="text/javascript">
-        var notice = <%= notice %>;
-        var n = notice.length;
-        if(n != 0){
-            notice.notification('top','center', 1, notice);
-        }
-        var alert = <%= alert %>;
-        var n = alert.length;
-        if(n != 0){
-            notice.notification('top','center', 4, alert);
-        }
-      </script>
-      <p> <%= notice %></p>
-    </div>
-</div>
+<% flash.each do |key, value| %>
+          <script type="text/javascript">
+              $(document).ready(function(){
+                demo.initChartist();
+                $.notify({
+                    icon: 'pe-7s-science',
+                    message: "<%= value %>"
 
-<%= yield %>
+                },{
+                    type: 'info',
+                    delay: 1000,
+                    placement:{
+                    from: 'top',
+                    align: 'center'
+                    }
+                });
+
+            });
+        </script>            
+<% end %>
+
+
+  <%= yield %>
 
 </body>
 </html>

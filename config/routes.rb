@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'home/dashboard'
+devise_for :users 
+
+devise_scope :user do  
+  authenticated :user do
+    root :to => 'home#dashboard', as: :authenticated_root
+  end
+  unauthenticated :user do
+    root :to => 'devise/sessions#new', as: :unauthenticated_root
+  end
+   get '/users/sign_out' => 'devise/sessions#destroy'     
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#dashboard'
+   #root 'home#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  delete 'users/sign_out' => "devise/sessions#destroy"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
