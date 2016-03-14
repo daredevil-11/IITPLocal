@@ -1,0 +1,140 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-image="<%= asset_path( 'sidebar-5.jpg' ) %>">
+
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+      <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.iitp.ac.in" class="simple-text">
+                    IIT PATNA
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="/home/dashboard">
+                        <i class="pe-7s-home"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href = "/dashboard/mail">
+                        <i class="pe-7s-mail"></i>
+                        <p>WebMail</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-chat"></i>
+                        <p>Instant Messenger</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-date"></i>
+                        <p>Calendar</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-settings"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+      </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Hello, <%= current_user.first_name%></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                        <% if user_signed_in? %>
+                            <%= link_to( 'Log out', destroy_user_session_path) %>
+                        <% end %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+     <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                
+                        <%= content_tag(:p, @mail.subject) %>
+                        <br\>
+                        <%= content_tag(:p, @mail.to) %>
+                        <br>
+                        <%= content_tag(:p, @mail.cc) %>
+                        <br>
+                        <%= content_tag(:p, @mail.body.preamble) %>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                IIT Patna-Intranet
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                E-Library
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Hostel Affairs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                   Single Log-In System
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</div>
