@@ -1,11 +1,18 @@
 class HomeController < ApplicationController
+
+          @mail
+          @html_decoded_body = Array.new(25) 
+          @text_decoded_body = Array.new(25) 
+          @multipart = Array.new(25, true)
   
   def dashboard
+    
   end
 
-require 'mail'
+  require 'mail'
 
   def mail
+
       Mail.defaults do
       retriever_method :imap, 
               :address    => "ashoka.iitp.ac.in",
@@ -15,9 +22,10 @@ require 'mail'
               :enable_ssl => false
       end
 
-      @emails =  Mail.first
-      @mail = Mail.read_from_string(@emails.to_s)
-
-  end
+      @emails =  Mail.find(:what => :last, :count => 25, :order => :desc)
+      
+  end 
 
 end
+
+

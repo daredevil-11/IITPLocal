@@ -1,8 +1,0 @@
-                      <%= @emails.each  do |mail| %>
-                       
-                      <% require "Mail" %>  
-                      <% MyMail = Mail.read(mail) %>
-                      <%= content_tag(:p, MyMail.subject)%>
-                      <br/>
-                      <%= content_tag(:p MyMail.body.decode) %>                      
-                      <% end %>

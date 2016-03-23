@@ -4,9 +4,16 @@ devise_for :users
 devise_scope :user do  
   authenticated :user do
     root :to => 'home#dashboard', as: :authenticated_root
+    get 'home/dashboard' => "home#dashboard"
+    get 'home/mail' => "home#mail"
+    get 'home/show' => "home#show"
   end
   unauthenticated :user do
     root :to => 'devise/sessions#new', as: :unauthenticated_root
+    get 'home/mail' => 'devise/sessions#new'
+    get 'home/show' => 'devise/sessions#new'
+    get 'home' => 'devise/sessions#new'
+    get 'home/dashboard' => 'devise/sessions#new'
   end
    get '/users/sign_out' => 'devise/sessions#destroy'     
 end
@@ -21,7 +28,9 @@ end
   #   get 'products/:id' => 'catalog#view'
   delete 'users/sign_out' => "devise/sessions#destroy"
 
-  get 'home/mail' => "home#mail"
+ # get 'home/mail' => "home#mail"
+
+#  get 'home/show' => "home#show"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

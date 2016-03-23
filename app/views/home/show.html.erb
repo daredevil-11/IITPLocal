@@ -91,42 +91,14 @@
      <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">INBOX</h4>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>From</th>
-                                        <th>Subject</th>
-                                    </thead>
-                                    <tbody>
-                                        <% @id = 0 %>
-                                        <% @emails.each do |email|%>
-                                        <% mailParse(email, @id) -%>
-                                        
-                                        <tr>
-                                        <td><%= @mail.from[0] %></td>
-                                        <td><a href="/home/show?id=<%= @id%>"><%= @mail.subject %> </a></td>
-                                        </tr>
-                                        <% @id = @id +1 %>
-                                        <% end %>
-
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
+                    <% if @multipart.at(@id) %>
+                    <%= @html_decoded_body.at(@id).html_safe %>
+                    <% else %>
+                    <%= @text_decoded_body.at(@id) %>
+                    <% end %>
                 </div>
-            </div>
-        </div>
-
-
-
+                </div>
+                </div>            
 
 
         <footer class="footer">

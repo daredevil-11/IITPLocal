@@ -17,3 +17,4 @@
 //=require bootstrap-notify
 //=require light-bootstrap-dashboard
 //=require demo
+//=require quoted-printable
