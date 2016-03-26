@@ -27,6 +27,7 @@ end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   delete 'users/sign_out' => "devise/sessions#destroy"
+  get '/home/profile'
 
  # get 'home/mail' => "home#mail"
 
